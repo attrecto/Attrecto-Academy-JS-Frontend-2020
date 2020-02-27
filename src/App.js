@@ -6,6 +6,7 @@ import {
   Users,
   NotFound,
   BadgeEditor,
+  UserEditor,
   Navbar
 } from "./components/main";
 
@@ -20,6 +21,8 @@ class App extends React.Component {
           <Route path="/badge" exact component={BadgeEditor} />
           <Route path="/badge/:id" component={BadgeEditor} />
           <Route path="/users" component={Users} />
+          <Route path="/user" exact component={UserEditor} />
+          <Route path="/user/:id" component={UserEditor} />
           <Route path="/404" component={NotFound} />
           <Redirect to="/404" />
         </Switch>

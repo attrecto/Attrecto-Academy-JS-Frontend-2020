@@ -9,6 +9,7 @@ const EditorTitle = ({
   buttonTitle,
   navLink,
   buttonClick,
+  subTitle,
   ...props
 }) => {
   return (
@@ -18,7 +19,7 @@ const EditorTitle = ({
         className
       )}
     >
-      <h2>{title}</h2>
+      {!subTitle ? <h2>{title}</h2> : <h5>{title}</h5>}
       {navLink ? (
         <NavLink to={navLink}>
           <Button {...props}>{buttonTitle}</Button>

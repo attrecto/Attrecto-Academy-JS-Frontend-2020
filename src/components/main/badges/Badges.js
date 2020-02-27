@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { getBadges, deleteBadge } from "../../../services/badges";
-import { Button, EditorTitle } from "../../shared";
+import { Button, EditorTitle, Table } from "../../shared";
 import { NavLink } from "react-router-dom";
 import Modal from "../../shared/modal/Modal";
-
-import "./Badges.css";
 
 class Badges extends Component {
   state = {
@@ -44,7 +42,7 @@ class Badges extends Component {
 
   render() {
     return (
-      <div className="Badges container">
+      <div className="container">
         <div className="row">
           <div className="col-12">
             <EditorTitle
@@ -52,33 +50,23 @@ class Badges extends Component {
               buttonTitle="Create Badge"
               navLink="/badge"
             />
-            <table className="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Description</th>
-                  <th>{""}</th>
+            <Table columns={["#", "Name", "Description", ""]}>
+              {this.state.badges.map((badge, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{badge.name}</td>
+                  <td>{badge.description}</td>
+                  <td className="text-right">
+                    <NavLink to={`/badge/${badge.id}`} className="mr-2">
+                      <Button>Edit</Button>
+                    </NavLink>
+                    <Button onClick={() => this.openRemoveBadgeModal(badge)}>
+                      Remove
+                    </Button>
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {this.state.badges.map((badge, index) => (
-                  <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{badge.name}</td>
-                    <td>{badge.description}</td>
-                    <td className="text-right">
-                      <NavLink to={`/badge/${badge.id}`} className="mr-2">
-                        <Button>Edit</Button>
-                      </NavLink>
-                      <Button onClick={() => this.openRemoveBadgeModal(badge)}>
-                        Remove
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+              ))}
+            </Table>
           </div>
         </div>
 

@@ -1,0 +1,23 @@
+table.dark {
+  color: white;
+}
+
+table.dark thead {
+  background-color: #202832;
+}
+
+table.dark tbody tr:nth-child(odd) {
+  background-color: #445260;
+}
+
+table.dark tbody tr:nth-child(even) {
+  background-color: #344150;
+}
+
+table.dark tbody td {
+  border: 0;
+}
+
+table.dark thead th {
+  border: 0;
+}
