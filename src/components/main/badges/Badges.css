@@ -1,0 +1,23 @@
+.Badges table {
+  color: white;
+}
+
+.Badges table thead {
+  background-color: #202832;
+}
+
+.Badges table tbody tr:nth-child(odd) {
+  background-color: #445260;
+}
+
+.Badges table tbody tr:nth-child(even) {
+  background-color: #344150;
+}
+
+.Badges table tbody td {
+  border: 0;
+}
+
+.Badges table thead th {
+  border: 0;
+}
